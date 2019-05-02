@@ -13,6 +13,7 @@
 		18BF4FA6210DA82C00E25040 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18BF4FA4210DA82C00E25040 /* LaunchScreen.storyboard */; };
 		18BF4FAE210DA8B200E25040 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF4FAD210DA8B200E25040 /* ConverterViewController.swift */; };
 		18BF4FB0210E027C00E25040 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF4FAF210E027C00E25040 /* Converter.swift */; };
+		2C148492227A86A700F9A182 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C148491227A86A700F9A182 /* Conversion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		18BF4FA7210DA82C00E25040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BF4FAD210DA8B200E25040 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		18BF4FAF210E027C00E25040 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		2C148491227A86A700F9A182 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +58,14 @@
 		18BF4F9A210DA82B00E25040 /* Conersion Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				18BF4FAD210DA8B200E25040 /* ConverterViewController.swift */,
 				18BF4F9B210DA82B00E25040 /* AppDelegate.swift */,
+				18BF4FAD210DA8B200E25040 /* ConverterViewController.swift */,
 				18BF4F9F210DA82B00E25040 /* Main.storyboard */,
-				18BF4FAF210E027C00E25040 /* Converter.swift */,
 				18BF4FA2210DA82C00E25040 /* Assets.xcassets */,
 				18BF4FA4210DA82C00E25040 /* LaunchScreen.storyboard */,
 				18BF4FA7210DA82C00E25040 /* Info.plist */,
+				2C148491227A86A700F9A182 /* Conversion.swift */,
+				18BF4FAF210E027C00E25040 /* Converter.swift */,
 			);
 			path = "Conersion Calculator";
 			sourceTree = "<group>";
@@ -99,6 +102,7 @@
 				TargetAttributes = {
 					18BF4F97210DA82B00E25040 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -139,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18BF4F9C210DA82B00E25040 /* AppDelegate.swift in Sources */,
+				2C148492227A86A700F9A182 /* Conversion.swift in Sources */,
 				18BF4FB0210E027C00E25040 /* Converter.swift in Sources */,
 				18BF4FAE210DA8B200E25040 /* ConverterViewController.swift in Sources */,
 			);
@@ -293,7 +298,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "online.techinnovator.Conersion-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -311,7 +316,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "online.techinnovator.Conersion-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

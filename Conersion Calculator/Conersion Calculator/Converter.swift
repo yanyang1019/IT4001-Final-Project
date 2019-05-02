@@ -9,7 +9,10 @@
 import UIKit
 
 struct Converter {
-    let label:String
-    let inputUnit:String
-    let outputUnit:String
+    let old: String
+    let new: String
+    init(old: String, new:String) {
+        self.new = new
+        self.old = old
+    }
 }

@@ -9,54 +9,152 @@
 import UIKit
 
 class ConverterViewController: UIViewController {
-
-    var converters = [Converter(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
-                      Converter(label: "celcius to fahrenheit", inputUnit: "°C", outputUnit: "°F"),
-                      Converter(label: "miles to kilometers", inputUnit: "mi", outputUnit: "km"),
-                      Converter(label: "kilometers to miles", inputUnit: "km", outputUnit: "mi")]
-    
-    var choosedConverter: Converter?
     
     @IBOutlet weak var outputDisplay: UITextField!
     @IBOutlet weak var inputDisplay: UITextField!
+    @IBOutlet weak var outputUnit: UILabel!
+    @IBOutlet weak var inputUnit: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    var option: Int = 1
+    //var minusControl: Int = 0
+    
+    func contentConvert() {
+        let convertController = Conversion()
+        let conversion = convertController.converterChange(option, inputDisplay.text!)
+        outputDisplay.text = conversion.new
+    }
+    
+    func unitConvert() {
+        let convertController = Conversion()
+        let conversion = convertController.unitChange(option)
+        self.inputUnit.text = conversion.old
+        self.outputUnit.text = conversion.new
+    }
+    
     
     @IBAction func converterTap(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "", message: "choose converter", preferredStyle: UIAlertControllerStyle.actionSheet)
-        alert.addAction(UIAlertAction(title: "fahrenheit to celcius", style: UIAlertActionStyle.default, handler: { (AlertAction) in
-            self.choosedConverter = self.converters[0]
-            self.inputDisplay.text = "°F"
-            self.outputDisplay.text = "°C"
+        let alert = UIAlertController(title: "", message: "Choose Converter", preferredStyle: UIAlertController.Style.actionSheet)
+        alert.addAction(UIAlertAction(title: "Fahrenheit to Celcius", style: UIAlertAction.Style.default, handler: { (AlertAction) in
+            self.option = 1
+            self.clear((Any).self)
+            self.unitConvert()
         }))
-        alert.addAction(UIAlertAction(title: "celcius to fahrenheit", style: UIAlertActionStyle.default, handler: { (AlertAction) in
-            self.choosedConverter = self.converters[1]
-            self.inputDisplay.text = "°C"
-            self.outputDisplay.text = "°F"
+        alert.addAction(UIAlertAction(title: "Celcius to Fahrenheit", style: UIAlertAction.Style.default, handler: { (AlertAction) in
+            self.option = 2
+            self.clear((Any).self)
+            self.unitConvert()
         }))
-        alert.addAction(UIAlertAction(title: "miles to kilometers", style: UIAlertActionStyle.default, handler: { (AlertAction) in
-            self.choosedConverter = self.converters[2]
-            self.inputDisplay.text = "ml"
-            self.outputDisplay.text = "km"
+        alert.addAction(UIAlertAction(title: "Miles to Kilometers", style: UIAlertAction.Style.default, handler: { (AlertAction) in
+            self.option = 3
+            self.clear((Any).self)
+            self.unitConvert()
         }))
-        alert.addAction(UIAlertAction(title: "miles to kilometers", style: UIAlertActionStyle.default, handler: { (AlertActiom) in
-            self.choosedConverter = self.converters[3]
-            self.inputDisplay.text = "km"
-            self.outputDisplay.text = "ml"
+        alert.addAction(UIAlertAction(title: "Miles to Kilometers", style: UIAlertAction.Style.default, handler: { (AlertActiom) in
+            self.option = 4
+            self.clear((Any).self)
+            self.unitConvert()
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //choosedConverter = converters[0]
-        inputDisplay.text = "°F"
-        outputDisplay.text = "°C"
-        // Do any additional setup after loading the view.
+    @IBAction func clear(_ sender: Any) {
+        inputDisplay.text = ""
+        outputDisplay.text = ""
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func minusPlus(_ sender: Any) {
+        if(inputDisplay.text != ""){
+            if (inputDisplay.text?.contains("-") == false){
+                inputDisplay.text = "-" + inputDisplay.text!
+                contentConvert()
+            } else {
+                let temp = inputDisplay.text?.components(separatedBy: "-")
+                inputDisplay.text = temp?[1]
+                contentConvert()
+            }
+        }
+        /*if(inputDisplay.text != ""){
+            inputDisplay.text = "-" + inputDisplay.text!
+            contentConvert()
+        }*/
+    }
+    
+    
+    @IBAction func point(_ sender: Any) {
+        if(inputDisplay.text?.contains(".") == false){
+            if(inputDisplay.text == ""){
+                inputDisplay.text? += "0."
+            } else {
+                inputDisplay.text? += "."
+                contentConvert()
+            }
+        }
+    }
+    
+    @IBAction func zero(_ sender: Any) {
+        if (inputDisplay.text == ""){
+            inputDisplay.text? += "0."
+        } else {
+            inputDisplay.text? += "0"
+        }
+        contentConvert()
+    }
+    
+    @IBAction func one(_ sender: Any) {
+        inputDisplay.text? += "1"
+        contentConvert()
+    }
+    
+    @IBAction func two(_ sender: Any) {
+        inputDisplay.text? += "2"
+        contentConvert()
+    }
+    
+    @IBAction func three(_ sender: Any) {
+        inputDisplay.text? += "3"
+        contentConvert()
+    }
+    
+    @IBAction func four(_ sender: Any) {
+        inputDisplay.text? += "4"
+        contentConvert()
+    }
+    
+    @IBAction func five(_ sender: Any) {
+        inputDisplay.text? += "5"
+        contentConvert()
+    }
+    
+    @IBAction func six(_ sender: Any) {
+        inputDisplay.text? += "6"
+        contentConvert()
+    }
+    
+    @IBAction func seven(_ sender: Any) {
+        inputDisplay.text? += "7"
+        contentConvert()
+    }
+    
+    @IBAction func eight(_ sender: Any) {
+        inputDisplay.text? += "8"
+        contentConvert()
+    }
+    
+    @IBAction func nine(_ sender: Any) {
+        inputDisplay.text? += "9"
+        contentConvert()
     }
     
     
